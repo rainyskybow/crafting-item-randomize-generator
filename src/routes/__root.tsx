@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 
-import { createRootRoute, HeadContent, Navigate, Outlet, Scripts } from "@tanstack/react-router";
+import { createRootRoute, HeadContent, Link, Outlet, Scripts } from "@tanstack/react-router";
 
 import { Analytics } from "@/components/analytics";
 import { ThemeProvider } from "@/context/theme-context";
@@ -69,7 +69,15 @@ function RootRoute() {
 }
 
 function NotFoundPage() {
-  return <Navigate to="/" replace />;
+  return (
+    <div className="flex min-h-screen flex-col items-center justify-center px-4 text-center">
+      <h1 className="mb-2 text-4xl font-bold">404 - Page Not Found</h1>
+      <p className="text-muted-foreground mb-4">The page you are looking for does not exist.</p>
+      <Link to="/" className="text-primary font-medium underline">
+        Go back home
+      </Link>
+    </div>
+  );
 }
 
 function RootDocument({ children }: { children: ReactNode }) {
