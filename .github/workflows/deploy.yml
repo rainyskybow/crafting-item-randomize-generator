@@ -19,7 +19,7 @@ jobs:
   deploy:
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: https://rainyskybow.github.io/crafting-item-randomize-generator
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -46,8 +46,8 @@ jobs:
       - name: Build project
         run: pnpm run build
         env:
-          BASE_PATH: ${{ steps.pages.outputs.base_path }}
-          VITE_SITE_URL: ${{ steps.pages.outputs.page_url }}
+          BASE_PATH: https://rainyskybow.github.io/crafting-item-randomize-generator
+          VITE_SITE_URL: https://rainyskybow.github.io/crafting-item-randomize-generator
 
       - name: Create .nojekyll and 404.html
         run: |
