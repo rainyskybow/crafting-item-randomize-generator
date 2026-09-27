@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *));
+
+@theme inline {
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-header: var(--header);
+  --color-header-foreground: var(--header-foreground);
+  --color-overlay: var(--overlay);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-minecraft-inventory-bg: hsl(var(--minecraft-inventory-bg));
+
+  --font-minecraft:
+    "Minecraft", "Minecraftia", ui-monospace, "SFMono-Regular", Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+}
+
+@layer base {
+  :root {
+    --background: var(--color-white);
+    --foreground: var(--color-mist-900);
+    --card: var(--color-white);
+    --card-foreground: var(--foreground);
+    --popover: var(--color-white);
+    --popover-foreground: var(--foreground);
+    --primary: var(--color-emerald-600);
+    --primary-foreground: var(--color-white);
+    --secondary: var(--color-mist-100);
+    --secondary-foreground: var(--color-mist-900);
+    --muted: var(--color-mist-100);
+    --muted-foreground: var(--color-mist-600);
+    --accent: var(--color-mist-100);
+    --accent-foreground: var(--color-mist-900);
+    --destructive: var(--color-red-500);
+    --destructive-foreground: var(--color-red-50);
+    --border: var(--color-mist-300);
+    --input: var(--border);
+    --ring: var(--primary);
+    --header: var(--color-neutral-800);
+    --header-foreground: var(--color-neutral-100);
+    --overlay: rgb(0 0 0 / 70%);
+    --warning: var(--color-amber-500);
+    --warning-foreground: var(--color-amber-300);
+    --radius: 0.5rem;
+
+    --app-max-width: var(--breakpoint-2xl);
+
+    --minecraft-inventory-bg: 0 0% 77.65%;
+    --minecraft-slot-bg: 0 0% 54.51%;
+    --minecraft-slot-border-tl: #373737;
+    --minecraft-slot-border-br: #ffffff;
+  }
+
+  .dark {
+    --background: var(--color-mist-950);
+    --foreground: var(--color-mist-100);
+    --card: var(--color-mist-900);
+    --card-foreground: var(--foreground);
+    --popover: var(--color-mist-900);
+    --popover-foreground: var(--foreground);
+    --primary: var(--color-emerald-500);
+    --primary-foreground: var(--color-white);
+    --secondary: var(--color-mist-800);
+    --secondary-foreground: var(--color-mist-100);
+    --muted: var(--color-mist-800);
+    --muted-foreground: var(--color-mist-400);
+    --accent: var(--color-mist-800);
+    --accent-foreground: var(--color-mist-100);
+    --destructive: var(--color-red-900);
+    --destructive-foreground: var(--color-red-50);
+    --border: color-mix(in oklab, var(--color-mist-700) 55%, var(--color-mist-800));
+    --input: var(--border);
+    --ring: var(--primary);
+
+    --minecraft-inventory-bg: 0 0% 20%;
+    --minecraft-slot-bg: 0 0% 14%;
+    --minecraft-slot-border-tl: #0a0a0a;
+    --minecraft-slot-border-br: #3a3a3a;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@utility minecraft-preview-slots {
+  --minecraft-slot-bg: 0 0% 54.51%;
+  --minecraft-slot-border-tl: #373737;
+  --minecraft-slot-border-br: #ffffff;
+}
+
+@utility scrollbar-app {
+  @apply scrollbar-thin scrollbar-thumb-mist-400 scrollbar-track-mist-200 hover:scrollbar-thumb-mist-300 active:scrollbar-thumb-mist-300 dark:scrollbar-thumb-mist-600 dark:scrollbar-track-mist-800 dark:hover:scrollbar-thumb-mist-500 dark:active:scrollbar-thumb-mist-500;
+}
