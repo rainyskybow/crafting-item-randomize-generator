@@ -70,10 +70,10 @@ function RootRoute() {
 
 function NotFoundPage() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen text-center px-4">
-      <h1 className="text-4xl font-bold mb-2">404 - Page Not Found</h1>
+    <div className="flex min-h-screen flex-col items-center justify-center px-4 text-center">
+      <h1 className="mb-2 text-4xl font-bold">404 - Page Not Found</h1>
       <p className="text-muted-foreground mb-4">The page you are looking for does not exist.</p>
-      <Link to="/" className="text-primary underline font-medium">
+      <Link to="/" className="text-primary font-medium underline">
         Go back home
       </Link>
     </div>
