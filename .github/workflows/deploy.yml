@@ -46,7 +46,7 @@ jobs:
       - name: Build project
         run: pnpm run build
         env:
-          BASE_PATH: https://rainyskybow.github.io/crafting-item-randomize-generator
+          BASE_PATH: /crafting-item-randomize-generator/
           VITE_SITE_URL: https://rainyskybow.github.io/crafting-item-randomize-generator
 
       - name: Create .nojekyll and 404.html

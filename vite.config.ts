@@ -14,8 +14,20 @@ const siteUrl = (process.env.VITE_SITE_URL ?? "https://crafting.thedestruc7i0n.c
   "",
 );
 
+function getBasePath(envPath?: string): string {
+  if (!envPath) return "/";
+  try {
+    const pathname = new URL(envPath, "http://localhost").pathname;
+    return pathname.endsWith("/") ? pathname : `${pathname}/`;
+  } catch {
+    return "/";
+  }
+}
+
+const basePath = getBasePath(process.env.BASE_PATH);
+
 export default defineConfig({
-  base: process.env.BASE_PATH || "/",
+  base: basePath,
   build: {
     target: "es2020",
   },
